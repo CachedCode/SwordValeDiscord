@@ -1,0 +1,9 @@
+name: SwordValeDiscord
+version: 1.0.0
+main: SwordValeDiscord.SVDiscord.SwordValeDiscord
+description: Custom Discord Bot For The SwordVale Network.
+author: InfiniteLoophole [HighestUnicorn]
+
+commands:
+  Discord:
+    description: Used to verify Minecraft player for Discord.
