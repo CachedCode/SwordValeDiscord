@@ -1,7 +1,6 @@
 package SwordValeDiscord.SVDiscord.util;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -10,25 +9,25 @@ import SwordValeDiscord.SVDiscord.SwordValeDiscord;
 
 public class verificationData {
 	
-	public verificationData() {
+	private final SwordValeDiscord plugin;
+	public verificationData(SwordValeDiscord plugin) {
+		this.plugin = plugin;
+		
 		setupData();
 	}
 	
 	private static File verifyFile;
 	private static FileConfiguration verificationData;
 	
-	public static void setupData() {
+	private void setupData() {
 		if(verifyFile == null) {
-		verifyFile = new File(SwordValeDiscord.getPlugin().getDataFolder() + "/verificationData.yml");
+		verifyFile = new File(plugin.getDataFolder() + "/verificationData.yml");
 		}
 		verificationData = YamlConfiguration.loadConfiguration(verifyFile);
 		saveVerificationData();
 	}
 	
 	public static FileConfiguration getVerificationData() {
-		if(verificationData == null) {
-			setupData();
-		}
 		return verificationData;
 	}
 	

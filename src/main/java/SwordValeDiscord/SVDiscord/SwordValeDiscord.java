@@ -11,8 +11,6 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
-import net.dv8tion.jda.core.entities.MessageChannel;
-import net.dv8tion.jda.core.entities.User;
 
 
 public class SwordValeDiscord extends JavaPlugin
@@ -20,7 +18,6 @@ public class SwordValeDiscord extends JavaPlugin
 
 	private static JDA discordBot;
 	
-	private static SwordValeDiscord plugin;
 	public void onEnable() {
 		setupDiscord("MzM0NjY1NDA0MTA0MzEwNzg0.DEkRVw.vbu2Hiq4sfr3uSsC4_ILyS0DrXg");
 		setupMinecraft();
@@ -32,8 +29,9 @@ public class SwordValeDiscord extends JavaPlugin
 	}
 	
 	private void setupMinecraft() {
-		plugin = this;
-		new verificationData();
+		new verificationData(this);
+		new discordClientListener(this);
+		new discordJoinListener(this);
 		
 		getCommand("discord").setExecutor(new discordCommand(this));
 	}
@@ -46,30 +44,16 @@ public class SwordValeDiscord extends JavaPlugin
 		discordBot.getPresence().setPresence(OnlineStatus.ONLINE, Game.of("swordvale.net"));
 		
 		discordBot.setAutoReconnect(true);
-		discordBot.addEventListener(new discordClientListener());
-		discordBot.addEventListener(new discordJoinListener());
+		discordBot.addEventListener(new discordClientListener(this));
+		discordBot.addEventListener(new discordJoinListener(this));
 		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static SwordValeDiscord getPlugin() {
-		return plugin;
-	}
-	
 	public static JDA getDiscord() {
 		return discordBot;
-	}
-
-	private static void sendAndLog(MessageChannel channel, String message)
-	{
-	    channel.sendMessage(message).queue(); // ^ calls that
-	}
-	
-	public void sendPrivateMessage(User user, String content)
-	{
-	    user.openPrivateChannel().queue((channel) -> sendAndLog(channel, content));
 	}
 	
 }
