@@ -20,7 +20,6 @@ public class discordClientListener extends ListenerAdapter {
 
 	public void onGuildMessageReceived(GuildMessageReceivedEvent e) {
 		User u = e.getAuthor();
-		// Guild g = e.getGuild();
 		Message m = e.getMessage();
 		
 		if(m.getContent().equals("/discord verify")) {

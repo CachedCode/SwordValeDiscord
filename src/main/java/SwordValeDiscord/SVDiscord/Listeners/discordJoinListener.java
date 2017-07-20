@@ -15,7 +15,6 @@ public class discordJoinListener extends ListenerAdapter {
 
 	@Override
 	public void onGuildMemberJoin(GuildMemberJoinEvent e) {
-		// Guild g = e.getGuild();
 		User u = e.getMember().getUser();
 		
 		discordUtil.sendPrivateMessage(u, "Thanks for joining! Your verification code is: **NULL**");
