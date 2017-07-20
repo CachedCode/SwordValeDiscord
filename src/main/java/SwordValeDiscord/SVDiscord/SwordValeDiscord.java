@@ -46,7 +46,6 @@ public class SwordValeDiscord extends JavaPlugin
 		discordBot.setAutoReconnect(true);
 		discordBot.addEventListener(new discordClientListener(this));
 		discordBot.addEventListener(new discordJoinListener(this));
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
