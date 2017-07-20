@@ -22,7 +22,7 @@ public class verificationCode {
 	public static void create(String userName) {
 		verificationCode = r.nextInt(900000) + 100000;
 		
-		if(!codeMap.containsKey(userName.toString()) || !verificationData.getVerificationData().contains(userName.toString())) {
+		if(!verificationData.getVerificationData().contains(userName.toString())) {
 		try {
 			codeMap.put(userName.toString(), verificationCode);
 			verificationData.getVerificationData().set(userName.toString(), verificationCode);
