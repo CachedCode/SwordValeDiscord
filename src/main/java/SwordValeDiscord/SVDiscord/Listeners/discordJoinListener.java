@@ -2,6 +2,7 @@ package SwordValeDiscord.SVDiscord.Listeners;
 
 import SwordValeDiscord.SVDiscord.SwordValeDiscord;
 import SwordValeDiscord.SVDiscord.util.discordUtil;
+import SwordValeDiscord.SVDiscord.util.verificationCode;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -17,7 +18,8 @@ public class discordJoinListener extends ListenerAdapter {
 	public void onGuildMemberJoin(GuildMemberJoinEvent e) {
 		User u = e.getMember().getUser();
 		
-		discordUtil.sendPrivateMessage(u, "Thanks for joining! Your verification code is: **NULL**");
+		verificationCode.create(u.getName());
+		discordUtil.sendPrivateMessage(u, "Thanks for joining! Your verification code is: " + verificationCode.get(u.getName()));
 	}
 	
 	
