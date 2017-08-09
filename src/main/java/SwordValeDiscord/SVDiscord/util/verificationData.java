@@ -16,6 +16,8 @@ public class verificationData {
 		setupData();
 	}
 	
+	//This class is fine
+	
 	private static File verifyFile;
 	private static FileConfiguration verificationData;
 	

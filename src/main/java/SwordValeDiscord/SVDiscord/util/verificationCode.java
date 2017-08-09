@@ -9,6 +9,8 @@ import SwordValeDiscord.SVDiscord.SwordValeDiscord;
 
 public class verificationCode {
 	
+	//Class can be made more efficient - should recode.
+	
 	private static Random r = new Random();
 	private static int verificationCode;
 	
@@ -22,9 +24,11 @@ public class verificationCode {
 	public static void create(String userName) {
 		verificationCode = r.nextInt(900000) + 100000;
 		
+		//Need to add MySQL support for each of these methods
 		if(!verificationData.getVerificationData().contains(userName.toString())) {
 		try {
 			codeMap.put(userName.toString(), verificationCode);
+			//could possibly use UUID instead of a Player name
 			verificationData.getVerificationData().set(userName.toString(), verificationCode);
 			verificationData.saveVerificationData();
 			Bukkit.getServer().getLogger().info("User " + userName.toString() + " has been given verification code " + verificationCode);
@@ -43,6 +47,7 @@ public class verificationCode {
 	}
 	
 	public static Integer get(String userName) {
+		//Again, a UUID for the player could be used.
 		if(codeMap.containsKey(userName)) {
 			return codeMap.get(userName);
 		} else {
