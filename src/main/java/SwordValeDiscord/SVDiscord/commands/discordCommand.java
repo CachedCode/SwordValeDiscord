@@ -31,7 +31,7 @@ public class discordCommand implements CommandExecutor {
 		//This needs to be somewhat recoded as it is insufficient
 			
 		if(cmd.getLabel().equalsIgnoreCase("discord")) {
-			code = r.nextInt(900000) + 100000; 
+			code = r.nextInt(900000) + 100000;
 			
 			//Add some sort of MySQL check for this as well.
 			if(verificationData.getVerificationData().contains(p.getName())) {

@@ -19,7 +19,6 @@ public class discordJoinListener extends ListenerAdapter {
 		User u = e.getMember().getUser();
 		
 		//This code is fine just needs more things added, contact @MajorSkillage.
-		
 		verificationCode.create(u.getName());
 		discordUtil.sendPrivateMessage(u, "Thanks for joining! Your verification code is: " + verificationCode.get(u.getName()));
 	}

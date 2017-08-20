@@ -10,7 +10,6 @@ import SwordValeDiscord.SVDiscord.SwordValeDiscord;
 public class verificationCode {
 	
 	//Class can be made more efficient - should recode.
-	
 	private static Random r = new Random();
 	private static int verificationCode;
 	

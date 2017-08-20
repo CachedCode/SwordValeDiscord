@@ -4,8 +4,6 @@ import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
 
 public class discordUtil {
-
-
 	//This API class is fine.
 	
 	private static void sendAndLog(MessageChannel channel, String message)

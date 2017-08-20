@@ -15,7 +15,6 @@ import net.dv8tion.jda.core.entities.Game;
 
 public class SwordValeDiscord extends JavaPlugin
 {
-
 	private static JDA discordBot;
 	
 	public void onEnable() {

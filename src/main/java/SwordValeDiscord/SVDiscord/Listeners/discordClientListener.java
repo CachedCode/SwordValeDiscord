@@ -36,7 +36,6 @@ public class discordClientListener extends ListenerAdapter {
 		User objUser = e.getAuthor();
 		
 		//This was a test command for discord. Can be removed if no use is found.
-		
 		if(objMsg.getContent().equals("/svbot")) {
 			objChnl.sendMessage(objUser.getAsMention() + " Need info on the SwordVale Bot? It has been Direct Messaged to you.").queue();
 		}
