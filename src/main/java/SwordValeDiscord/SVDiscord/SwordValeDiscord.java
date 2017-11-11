@@ -19,7 +19,7 @@ public class SwordValeDiscord extends JavaPlugin
 	
 	public void onEnable() {
 		//Could put this into config
-		setupDiscord("MzM0NjY1NDA0MTA0MzEwNzg0.DEkRVw.vbu2Hiq4sfr3uSsC4_ILyS0DrXg");
+		setupDiscord("TOKEN");
 		setupMinecraft();
 	}
 	
